@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#1d1f27">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="投稿ネタ提案">
+<link rel="manifest" href="manifest.json">
+<link rel="apple-touch-icon" href="icon.svg">
+<title>投稿ネタ提案 - X投稿支援ツール</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header class="app-header">
+  <h1><span class="header-icon" aria-hidden="true">🐦</span>投稿ネタ提案</h1>
+  <p class="subtitle">新入荷・イベント告知を、思わず手が止まる一文に</p>
+</header>
+
+<main>
+  <form id="post-form">
+    <fieldset class="field-group">
+      <legend>投稿の種類</legend>
+      <div class="segmented" role="radiogroup">
+        <label class="segmented-option">
+          <input type="radio" name="category" value="item" checked>
+          <span>新商品入荷</span>
+        </label>
+        <label class="segmented-option">
+          <input type="radio" name="category" value="event">
+          <span>イベント告知</span>
+        </label>
+      </div>
+    </fieldset>
+
+    <label class="field">
+      <span class="field-label">商品名・イベント名<em>*必須</em></span>
+      <input type="text" id="item-name" placeholder="例:夏の新作トートバッグ" required>
+    </label>
+
+    <label class="field">
+      <span class="field-label">魅力・特徴<em>1行1個、複数OK</em></span>
+      <textarea id="features" rows="3" placeholder="例:&#10;軽くて大容量&#10;撥水加工で雨の日も安心&#10;カラバリ全5色"></textarea>
+    </label>
+
+    <div class="field-row">
+      <label class="field">
+        <span class="field-label" id="price-label">価格</span>
+        <input type="text" id="price" placeholder="例:3,980円">
+      </label>
+      <label class="field">
+        <span class="field-label">日時</span>
+        <input type="text" id="datetime" placeholder="例:7/15(火)10:00〜">
+      </label>
+    </div>
+
+    <label class="field">
+      <span class="field-label">場所<em>店舗名など任意</em></span>
+      <input type="text" id="place" placeholder="例:渋谷店">
+    </label>
+
+    <label class="field">
+      <span class="field-label">ハッシュタグ<em>スペース区切り、#は不要</em></span>
+      <input type="text" id="hashtags" placeholder="例:新作 夏コーデ 渋谷">
+    </label>
+
+    <label class="field">
+      <span class="field-label">URL<em>任意・本文には入れません</em></span>
+      <input type="text" id="url" placeholder="例:https://example.com/item">
+    </label>
+
+    <button type="submit" class="generate-btn">投稿案を作る</button>
+  </form>
+
+  <section id="results" class="results" hidden>
+    <h2>投稿案</h2>
+    <p class="tips-line">💡 リンクは本文に入れず投稿後のセルフリプへ貼るとリーチが落ちにくくなります。ハッシュタグは1〜2個が目安です。</p>
+    <div id="url-callout" class="url-callout" hidden>
+      <p class="url-callout-title">🔗 URLは本文に含めていません</p>
+      <p class="url-callout-text" id="url-callout-text"></p>
+      <div class="url-callout-footer">
+        <span class="url-callout-hint">投稿した直後に、自分の投稿への「リプライ」としてこのURLを貼ってください</span>
+        <button type="button" id="url-copy-btn" class="copy-btn">コピー</button>
+      </div>
+    </div>
+    <div id="results-list" class="results-list"></div>
+  </section>
+</main>
+
+<footer class="app-footer">
+  <p>文字数はX無料プランの上限280字を目安に自動調整しています</p>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>

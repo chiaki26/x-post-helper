@@ -1,0 +1,304 @@
+:root {
+  --bg: #f5f6f8;
+  --surface: #ffffff;
+  --text: #1a1c23;
+  --text-muted: #6b7280;
+  --border: #e2e4e9;
+  --accent: #1d9bf0;
+  --accent-text: #ffffff;
+  --danger: #e0245e;
+  --radius: 14px;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #15161a;
+    --surface: #1e2028;
+    --text: #f2f3f5;
+    --text-muted: #9aa0aa;
+    --border: #2e313a;
+    --accent: #1d9bf0;
+    --accent-text: #ffffff;
+    --danger: #f4527a;
+  }
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, "Hiragino Sans", "Yu Gothic", sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  -webkit-font-smoothing: antialiased;
+}
+
+.app-header {
+  padding: 28px 20px 16px;
+  text-align: center;
+}
+
+.app-header h1 {
+  margin: 0 0 6px;
+  font-size: 22px;
+}
+
+.header-icon {
+  display: inline-block;
+  margin-right: 6px;
+  font-size: 20px;
+  vertical-align: -2px;
+}
+
+.subtitle {
+  margin: 0;
+  color: var(--text-muted);
+  font-size: 14px;
+}
+
+main {
+  max-width: 480px;
+  margin: 0 auto;
+  padding: 0 16px 40px;
+}
+
+#post-form {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.field-group {
+  border: none;
+  margin: 0;
+  padding: 0;
+}
+
+.field-group legend {
+  font-size: 13px;
+  color: var(--text-muted);
+  margin-bottom: 8px;
+  padding: 0;
+}
+
+.segmented {
+  display: flex;
+  background: var(--bg);
+  border-radius: 10px;
+  padding: 4px;
+  gap: 4px;
+}
+
+.segmented-option {
+  flex: 1;
+  text-align: center;
+  padding: 10px 8px;
+  border-radius: 8px;
+  font-size: 14px;
+  cursor: pointer;
+  transition: background .15s ease;
+}
+
+.segmented-option input {
+  position: absolute;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.segmented-option:has(input:checked) {
+  background: var(--accent);
+  color: var(--accent-text);
+  font-weight: 600;
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.field-row {
+  display: flex;
+  gap: 12px;
+}
+
+.field-row .field {
+  flex: 1;
+  min-width: 0;
+}
+
+.field-label {
+  font-size: 13px;
+  color: var(--text-muted);
+  display: flex;
+  gap: 6px;
+  align-items: baseline;
+}
+
+.field-label em {
+  font-style: normal;
+  font-size: 11px;
+  color: var(--accent);
+}
+
+input[type="text"],
+textarea {
+  font-size: 16px;
+  padding: 10px 12px;
+  border-radius: 10px;
+  border: 1px solid var(--border);
+  background: var(--bg);
+  color: var(--text);
+  font-family: inherit;
+  resize: vertical;
+}
+
+input[type="text"]:focus,
+textarea:focus {
+  outline: 2px solid var(--accent);
+  outline-offset: -1px;
+}
+
+.generate-btn {
+  margin-top: 4px;
+  padding: 14px;
+  border: none;
+  border-radius: 999px;
+  background: var(--accent);
+  color: var(--accent-text);
+  font-size: 16px;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.generate-btn:active {
+  opacity: .85;
+}
+
+.results {
+  margin-top: 28px;
+}
+
+.results h2 {
+  font-size: 16px;
+  margin: 0 0 12px;
+}
+
+.tips-line {
+  font-size: 12px;
+  color: var(--text-muted);
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 10px 12px;
+  margin: 0 0 14px;
+  line-height: 1.5;
+}
+
+.url-callout {
+  background: var(--surface);
+  border: 1px solid var(--accent);
+  border-radius: var(--radius);
+  padding: 14px 16px;
+  margin: 0 0 16px;
+}
+
+.url-callout-title {
+  margin: 0 0 6px;
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--accent);
+}
+
+.url-callout-text {
+  margin: 0 0 10px;
+  font-size: 14px;
+  word-break: break-all;
+}
+
+.url-callout-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+}
+
+.url-callout-hint {
+  font-size: 12px;
+  color: var(--text-muted);
+  line-height: 1.4;
+}
+
+.results-list {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.post-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.post-card-label {
+  font-size: 12px;
+  color: var(--accent);
+  font-weight: 700;
+}
+
+.post-card-text {
+  white-space: pre-wrap;
+  font-size: 15px;
+  line-height: 1.6;
+  margin: 0;
+}
+
+.post-card-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.char-count {
+  font-size: 12px;
+  color: var(--text-muted);
+}
+
+.char-count.warn {
+  color: var(--danger);
+  font-weight: 700;
+}
+
+.copy-btn {
+  padding: 8px 16px;
+  border-radius: 999px;
+  border: 1px solid var(--accent);
+  background: transparent;
+  color: var(--accent);
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+.copy-btn.copied {
+  background: var(--accent);
+  color: var(--accent-text);
+}
+
+.app-footer {
+  text-align: center;
+  color: var(--text-muted);
+  font-size: 12px;
+  padding: 0 20px 24px;
+}

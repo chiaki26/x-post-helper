@@ -1,0 +1,17 @@
+{
+  "name": "投稿ネタ提案 - X投稿支援ツール",
+  "short_name": "投稿ネタ提案",
+  "description": "新商品入荷・イベント告知を、手が止まる投稿文に変換するツール",
+  "start_url": "index.html",
+  "display": "standalone",
+  "background_color": "#15161a",
+  "theme_color": "#1d9bf0",
+  "icons": [
+    {
+      "src": "icon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ]
+}
